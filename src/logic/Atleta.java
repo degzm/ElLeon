@@ -27,7 +27,7 @@ public class Atleta extends Persona
     }
     
 //Constructor inicializado con parametros sobrecargados
-    public Atleta(int np, String d, int ed, String nd, Double es, genero gn){
+    public Atleta(int np, String d, int ed, String nd, Double es, String gn){
     	claveAtleta = np;
     	//Atributos Persona
         nombreAtleta = d;
