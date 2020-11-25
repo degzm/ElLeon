@@ -50,7 +50,7 @@ public class GuiPrincipal {
 */
 	private void initialize() {
 		
-		AtletaCentralClass client = new AtletaCentralClass(5);
+		AtletaCentralClass atlet = new AtletaCentralClass(5);
 //Frame principal
 		frmAtletas = new JFrame();
 		frmAtletas.setUndecorated(true);
@@ -70,7 +70,7 @@ public class GuiPrincipal {
 		JButton btnNewAtleta = new JButton("Nuevo Atleta");
 		btnNewAtleta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				client.alta();
+				atlet.alta();
 			}
 		});
 		btnNewAtleta.setForeground(Color.BLACK);
@@ -82,7 +82,7 @@ public class GuiPrincipal {
 		btnBajaAtleta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int np = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Cual numero de atleta quieres borrar?"));
-				client.baja(np);
+				atlet.baja(np);
 			}
 		});
 		btnBajaAtleta.setForeground(Color.BLACK);
@@ -95,7 +95,7 @@ public class GuiPrincipal {
 			public void actionPerformed(ActionEvent e) {
 				int np = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Cual numero de atleta quieres consultar?"));
 				try {
-					client.consulta(np);
+					atlet.consulta(np);
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
@@ -111,7 +111,7 @@ public class GuiPrincipal {
 			public void actionPerformed(ActionEvent arg0) {
 				int np = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Cual numero de atleta quieres modificar?"));
 				try {
-					client.cambio(np);
+					atlet.cambio(np);
 				} catch (Excpt e) {
 					JOptionPane.showMessageDialog(null, "Ocurrio algo!", "Error.", JOptionPane.WARNING_MESSAGE);
 				}
@@ -125,7 +125,7 @@ public class GuiPrincipal {
 		JButton btnListadoAtletas = new JButton("Listado");
 		btnListadoAtletas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, client.toString());
+				JOptionPane.showMessageDialog(null, atlet.toString());
 			}
 		});
 		btnListadoAtletas.setForeground(Color.BLACK);
@@ -137,7 +137,7 @@ public class GuiPrincipal {
 		btnSave.setEnabled(false);
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				client.guardar();
+				atlet.guardar();
 			}
 		});
 		btnSave.setForeground(Color.BLACK);
@@ -149,7 +149,7 @@ public class GuiPrincipal {
 		btnLoad.setEnabled(false);
 		btnLoad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				client.cargar();
+				atlet.cargar();
 			}
 		});
 		btnLoad.setForeground(Color.BLACK);

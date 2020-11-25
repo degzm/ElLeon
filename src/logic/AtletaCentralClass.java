@@ -18,7 +18,7 @@ public class AtletaCentralClass extends Object{
     }
     public void alta(){
         if(auxiliar < pros.length){
-            pros[auxiliar].leerProducto(numAtleta);
+            pros[auxiliar].leerAtleta(numAtleta);
             auxiliar++;
             numAtleta++;
         }

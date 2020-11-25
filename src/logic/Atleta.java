@@ -1,55 +1,74 @@
 package logic;
 
 import javax.swing.JOptionPane;
-
-import java.io.Serializable;
-@SuppressWarnings("serial")
-public class Atleta extends Object implements Serializable
+public class Atleta extends Persona
 {
-    private int claveAtleta, edadAtleta;
-    private String nombreAtleta; 
-    
+//Atributos Persona
+    private String nombreAtleta;
+    private int edadAtleta; 
+    public Double estatura; 
+    public String genero;
+//Atributos Atleta
+    public int claveAtleta;
 	public String nacionalidad;
 	public String deporte;
 	public String categoria;
     
-    
+//Se inicializan los valores por default
     public Atleta(){
+    	nombreAtleta = null;
+    	edadAtleta =  0;
+    	//TODO Estatura
+        //TODO Genero
+    	
         claveAtleta = 0;
-        nombreAtleta = null;
-        edadAtleta =  0;
         nacionalidad = null;
     }
+    
+//Constructor inicializado con parametros sobrecargados
     public Atleta(int np, String d, int ed, String nd){
-        claveAtleta = np;
         nombreAtleta = d;
         edadAtleta = ed;
+        //TODO Estatura
+        //TODO Genero
+        
+        claveAtleta = np;
         nacionalidad = nd;
     }
+    
+//Constructor 
     public Atleta(Atleta px){
-        this.claveAtleta = px.claveAtleta;
         this.nombreAtleta = px.nombreAtleta;
         this.edadAtleta = px.edadAtleta;
+        //TODO Estatura
+        //TODO Genero
+        
+        this.claveAtleta = px.claveAtleta;
         this.nacionalidad = px.nacionalidad;
     }
-    public int getClaveAtleta(){return claveAtleta;}
-    public void setClaveAtleta(int np){claveAtleta=np;}
+    
+    //Getters Setters Nombre
     public String getNombreAtleta(){return nombreAtleta;}
     public void setNombreAtleta(String d){nombreAtleta=d;}
+    //Getters Setters Edad
     public int getEdadAtleta(){return edadAtleta;}
     public void setEdadAtleta(int ed){edadAtleta=ed;}
-    public String getNacionalidadAtleta(){return nacionalidad;}
-    public void setNacionalidadAtleta(String nd) {nacionalidad =nd;}
+    //Getters Setters Clave
+    public int getClaveAtleta(){return claveAtleta;}
+    public void setClaveAtleta(int np){claveAtleta=np;}
+    //TODO Estatura
+    //TODO Genero
     
-    
-    
-    public void leerProducto(int np){
+//Aqui se leen los datos de el atleta
+    public void leerAtleta(int np){
             claveAtleta = np;
-            nombreAtleta = JOptionPane.showInputDialog(null, "¿Cual es el nombre de el atleta?");
-            edadAtleta = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Cual su edad?"));
-            nacionalidad = JOptionPane.showInputDialog(null, "¿Cual es el la nacionalidad de el atleta?");
+            nombreAtleta = JOptionPane.showInputDialog(null, "¿Cual es el nombre del atleta?", "Inserte nombre", JOptionPane.PLAIN_MESSAGE);
+            edadAtleta = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Cual es la edad del atleta?.", "Inserte edad", JOptionPane.PLAIN_MESSAGE));
+            //TODO Estatura
+            //TODO Genero
+            
     }
-    
+ 
     private boolean checarRangoInvalido(String sp){
         if(! (sp.toLowerCase().equals("n") ||
              sp.toLowerCase().equals("e"))){
@@ -57,12 +76,12 @@ public class Atleta extends Object implements Serializable
         }
         return false;
     }
+    
     public void cambiar() throws Excpt{
         String subop = JOptionPane.showInputDialog(null, "Que campo quieres modificar?"+ 
 													        "\nNombre - N" + 
-													        "\nEdad - E" +
-													        "nNacionalidad - Nd",
-													        "Campos disponibles", JOptionPane.INFORMATION_MESSAGE);
+													        "\nEdad - E",
+													        "\nCampos disponibles", JOptionPane.INFORMATION_MESSAGE);
         if(  checarRangoInvalido(subop) ){
             throw new Excpt();
         }
@@ -77,16 +96,14 @@ public class Atleta extends Object implements Serializable
                 int ed = Integer.parseInt(JOptionPane.showInputDialog(null, "Nueva edad.", "Cambio de edad", JOptionPane.PLAIN_MESSAGE));
                 setEdadAtleta(ed);
                 break;
-            case "nd":
-            	String nd = JOptionPane.showInputDialog(null, "Nueva nacionalidad.", "Cambio de nacionalidad", JOptionPane.PLAIN_MESSAGE);
-                setNacionalidadAtleta(nd);
             default: JOptionPane.showMessageDialog(null, "Intenta con las letras que se te dan!", "Opcion no valida", JOptionPane.WARNING_MESSAGE); break;
         }
     }
+    
+    
     public String toString(){
         return "Atleta numero:    " + claveAtleta +"\n"+
                 "Nombre:    " + nombreAtleta +"\n"+
-                "Edad:    " + edadAtleta +"\n"+
-                "Nacionalidad:    " + nacionalidad + "\n";
+                "Edad:    " + edadAtleta +"\n";
     }
 }
