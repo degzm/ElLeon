@@ -16,57 +16,63 @@ public class Atleta extends Persona
     
 //Se inicializan los valores por default
     public Atleta(){
+    	//Atributos Persona
     	nombreAtleta = null;
     	edadAtleta =  0;
-    	//TODO Estatura
-        //TODO Genero
-    	
+    	estatura = 0.0;
+    	genero = null;
+    	//Atributos Atleta
         claveAtleta = 0;
         nacionalidad = null;
     }
     
 //Constructor inicializado con parametros sobrecargados
-    public Atleta(int np, String d, int ed, String nd){
+    public Atleta(int np, String d, int ed, String nd, Double es, genero gn){
+    	claveAtleta = np;
+    	//Atributos Persona
         nombreAtleta = d;
         edadAtleta = ed;
-        //TODO Estatura
-        //TODO Genero
-        
-        claveAtleta = np;
+        estatura = es;
+        genero = gn;
+        //Atributos Atleta
         nacionalidad = nd;
     }
     
 //Constructor 
     public Atleta(Atleta px){
+    	//Atriutos Persona
         this.nombreAtleta = px.nombreAtleta;
         this.edadAtleta = px.edadAtleta;
-        //TODO Estatura
-        //TODO Genero
-        
+        this.estatura = px.estatura;
+        this.genero = px.genero;
+        //Atributos Atleta
         this.claveAtleta = px.claveAtleta;
         this.nacionalidad = px.nacionalidad;
     }
     
+    //Getters Setters Clave
+    public int getClaveAtleta(){return claveAtleta;}
+    public void setClaveAtleta(int np){claveAtleta=np;}
     //Getters Setters Nombre
     public String getNombreAtleta(){return nombreAtleta;}
     public void setNombreAtleta(String d){nombreAtleta=d;}
     //Getters Setters Edad
     public int getEdadAtleta(){return edadAtleta;}
     public void setEdadAtleta(int ed){edadAtleta=ed;}
-    //Getters Setters Clave
-    public int getClaveAtleta(){return claveAtleta;}
-    public void setClaveAtleta(int np){claveAtleta=np;}
-    //TODO Estatura
-    //TODO Genero
+    //Getters Setters Estatura
+    public double getEstatura(){return estatura;}
+    public void setEstatura(Double es){estatura = es;}
+    //Getters Setters Genero
+    public String getGenero(){return genero;}
+    public void setGenero(String gn){genero=gn;}
     
 //Aqui se leen los datos de el atleta
     public void leerAtleta(int np){
             claveAtleta = np;
             nombreAtleta = JOptionPane.showInputDialog(null, "¿Cual es el nombre del atleta?", "Inserte nombre", JOptionPane.PLAIN_MESSAGE);
             edadAtleta = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Cual es la edad del atleta?.", "Inserte edad", JOptionPane.PLAIN_MESSAGE));
-            //TODO Estatura
-            //TODO Genero
-            
+            estatura = Double.parseDouble(JOptionPane.showInputDialog(null, "¿Cual es la estatura del atleta?", "Inserte estatura", JOptionPane.PLAIN_MESSAGE));
+            genero = JOptionPane.showInputDialog(null, "¿Cual es el genero del atleta?", "Inserte genero", JOptionPane.PLAIN_MESSAGE);
     }
  
     private boolean checarRangoInvalido(String sp){
