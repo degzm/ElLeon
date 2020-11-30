@@ -16,6 +16,7 @@ public class AtletaCentralClass extends Object{
         auxiliar = 0;
         numAtleta = 0;
     }
+    
     public void alta(){
         if(auxiliar < pros.length){
             pros[auxiliar].leerAtleta(numAtleta);
@@ -26,6 +27,7 @@ public class AtletaCentralClass extends Object{
             JOptionPane.showMessageDialog(null, "Base de datos de atletas llena.", "Intenta liberarla o aumentarla!", JOptionPane.WARNING_MESSAGE);
         }
     }
+    
     public void baja(int np){
         if (encontrado(np)){
             int pos = buscar(np);
@@ -47,6 +49,7 @@ public class AtletaCentralClass extends Object{
         }
         return false;
     }
+    
     private int buscar(int np){
         int pos=0;
         for(int i=0; i<auxiliar; i++){
@@ -57,6 +60,7 @@ public class AtletaCentralClass extends Object{
         }
         return pos;
     }
+    
     public void consulta(int np) throws Exception{
         if( encontrado(np)){
             int pos = buscar(np);

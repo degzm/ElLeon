@@ -1,11 +1,11 @@
 package logic;
 
 import javax.swing.JOptionPane;
-public class Atleta extends Persona
-{
+public class Atleta extends Persona{
+	
 //Atributos Persona
-    private String nombreAtleta;
-    private int edadAtleta; 
+    private String nombreA;
+    private int edadA; 
     public Double estatura; 
     public String genero;
 //Atributos Atleta
@@ -17,62 +17,75 @@ public class Atleta extends Persona
 //Se inicializan los valores por default
     public Atleta(){
     	//Atributos Persona
-    	nombreAtleta = null;
-    	edadAtleta =  0;
+    	nombreA = null;
+    	edadA =  0;
     	estatura = 0.0;
     	genero = null;
     	//Atributos Atleta
         claveAtleta = 0;
         nacionalidad = null;
+        deporte = null;
     }
     
 //Constructor inicializado con parametros sobrecargados
-    public Atleta(int np, String d, int ed, String nd, Double es, String gn){
+    public Atleta(int np, String d, int ed, String nd, Double es, String gn, String dp){
     	claveAtleta = np;
     	//Atributos Persona
-        nombreAtleta = d;
-        edadAtleta = ed;
+        nombreA = d;
+        edadA = ed;
         estatura = es;
         genero = gn;
         //Atributos Atleta
         nacionalidad = nd;
+        deporte = dp;
     }
     
 //Constructor 
     public Atleta(Atleta px){
     	//Atriutos Persona
-        this.nombreAtleta = px.nombreAtleta;
-        this.edadAtleta = px.edadAtleta;
+        this.nombreA = px.nombreA;
+        this.edadA = px.edadA;
         this.estatura = px.estatura;
         this.genero = px.genero;
         //Atributos Atleta
         this.claveAtleta = px.claveAtleta;
         this.nacionalidad = px.nacionalidad;
+        this.deporte = px.deporte;
     }
     
     //Getters Setters Clave
     public int getClaveAtleta(){return claveAtleta;}
     public void setClaveAtleta(int np){claveAtleta=np;}
     //Getters Setters Nombre
-    public String getNombreAtleta(){return nombreAtleta;}
-    public void setNombreAtleta(String d){nombreAtleta=d;}
+    public String getNombreAtleta(){return nombreA;}
+    public void setNombreAtleta(String d){nombreA=d;}
     //Getters Setters Edad
-    public int getEdadAtleta(){return edadAtleta;}
-    public void setEdadAtleta(int ed){edadAtleta=ed;}
+    public int getEdadAtleta(){return edadA;}
+    public void setEdadAtleta(int ed){edadA=ed;}
     //Getters Setters Estatura
     public double getEstatura(){return estatura;}
     public void setEstatura(Double es){estatura = es;}
     //Getters Setters Genero
     public String getGenero(){return genero;}
     public void setGenero(String gn){genero=gn;}
+    //Getters Setters Nacionalidad
+    public String getNacionalidad(){return nacionalidad;}
+    public void setNacionalidad(String nd){nacionalidad=nd;}
+    //Getters Setters deporte
+    public String getDeporte(){return deporte;}
+	public void setDeporte(String deporte){this.deporte = deporte;}
+    
+    
     
 //Aqui se leen los datos de el atleta
     public void leerAtleta(int np){
             claveAtleta = np;
-            nombreAtleta = JOptionPane.showInputDialog(null, "¿Cual es el nombre del atleta?", "Inserte nombre", JOptionPane.PLAIN_MESSAGE);
-            edadAtleta = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Cual es la edad del atleta?.", "Inserte edad", JOptionPane.PLAIN_MESSAGE));
+            nombreA = JOptionPane.showInputDialog(null, "¿Cual es el nombre del atleta?", "Inserta porfa el nombre", JOptionPane.WARNING_MESSAGE);
+            edadA = Integer.parseInt(JOptionPane.showInputDialog(null, "¿Cual es la edad del atleta?.", "Inserte edad", JOptionPane.PLAIN_MESSAGE));
             estatura = Double.parseDouble(JOptionPane.showInputDialog(null, "¿Cual es la estatura del atleta?", "Inserte estatura", JOptionPane.PLAIN_MESSAGE));
             genero = JOptionPane.showInputDialog(null, "¿Cual es el genero del atleta?", "Inserte genero", JOptionPane.PLAIN_MESSAGE);
+            nacionalidad = JOptionPane.showInputDialog(null,"Cual es la nacionalidad del atleta?","Inserte Nacionalidad",JOptionPane.PLAIN_MESSAGE);
+            deporte = JOptionPane.showInputDialog(null,"Cual es el deporte del atleta?","Inserte deporte/disciplina",JOptionPane.PLAIN_MESSAGE);
     }
  
     private boolean checarRangoInvalido(String sp){
@@ -109,7 +122,11 @@ public class Atleta extends Persona
     
     public String toString(){
         return "Atleta numero:    " + claveAtleta +"\n"+
-                "Nombre:    " + nombreAtleta +"\n"+
-                "Edad:    " + edadAtleta +"\n";
+                "Nombre:    " + nombreA +"\n"+
+                "Edad:    " + edadA +"\n"+
+                "Estatura:   " + estatura + "\n" +
+                "Genero:     " + genero + "\n"+
+                "Nacionalidad:   " + nacionalidad + "\n"+
+                "Deporte:   " + deporte + "\n";
     }
 }
